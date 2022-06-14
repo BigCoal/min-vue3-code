@@ -32,7 +32,7 @@ export function effect(fn, options?) {
   const effectCls = new effectImpl(fn, options?.scheduler);
   extend(effectCls, options);
   effectCls.run();
-  const runner = effectCls.run.bind(effectCls);
+  const runner: any = effectCls.run.bind(effectCls);
   runner._effect = effectCls;
   return runner;
 }
